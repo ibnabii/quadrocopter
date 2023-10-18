@@ -22,7 +22,7 @@ class World:
             self.groups.append(BeaconGroup())
             return (self.groups[-1],)
 
-    def add(self, beacon: Beacon):
+    def add(self, beacon: Beacon) -> None:
         """
         Adds a beacon to the World. Beacon is added to the group it overlaps with.
         New group is created if beacon does not overlap with any group.
@@ -40,7 +40,7 @@ class World:
             groups[0].beacons += group.beacons
             self.groups.remove(group)
 
-    def is_there_path(self, point1: tuple[int], point2: tuple[int]):
+    def is_there_path(self, point1: tuple[int], point2: tuple[int]) -> bool:
         """
         Checks if there is a path within coverage of beacons between point1 and point2
         :param point1: tuple (x, y) denoting position of first point
